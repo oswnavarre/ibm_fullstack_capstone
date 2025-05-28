@@ -83,7 +83,7 @@ app.get('/fetchDealers/:state', async (req, res) => {
 
 // Express route to fetch dealer by a particular id
 app.get('/fetchDealer/:id', async (req, res) => {
-    const id = req.params.id; // Parse the ID as an integer
+    const id = parseInt(req.params.id, 10); // Parse the ID as an integer
     try {
         const dealership = await Dealerships.findOne({ id });
         if (!dealership) {
